@@ -1,0 +1,382 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Briem+Hand&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Se till att container täcker hela skärmen */
+  background-image: linear-gradient(to right, #dcdac0, #fffd78);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Justera till toppen */
+  padding: 4rem 2rem;
+  padding-top: 18rem; /* Justera denna padding för mer luft över containern */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.citat-app {
+  width: 80%;
+  max-width: 100%;
+  background-color: #212226;
+  border-radius: 3rem;
+  padding: 4rem 2rem;
+  padding-top: 3rem;
+  box-shadow: -2rem 2rem 6rem rgba(0, 0, 0, 0.6);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  z-index: 1;
+}
+
+h1 {
+  color: #fff;
+  font-family: "Comfortaa", cursive;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.citat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.citat i {
+  font-size: 3rem;
+  color: #ddd;
+}
+
+.citat-text {
+  font-size: clamp(1.3rem, 2.5vw, 2.2rem); /* Justera för större skärmar */
+  color: #ddd;
+  line-height: 1.5;
+  letter-spacing: 0.05rem;
+}
+
+.citat-author {
+  font-family: "Briem Hand", cursive;
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  border: none;
+  font-family: "Comfortaa", cursive;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-new {
+  background-image: linear-gradient(to left, #553ddd, #7f6978);
+}
+
+.btn-fav {
+  background-image: linear-gradient(to left, #2e6f79, #1b9b96);
+}
+
+.btn-show {
+  background-image: linear-gradient(to left, #b39d57, #9b7d1b);
+}
+
+/* Style för ta bort-knappen */
+.btn-remove {
+  background-color: transparent;
+  border: none;
+  color: #ff4c4c;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.btn-remove:hover {
+  color: #d43f3f;
+}
+
+.favorites {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 1rem;
+  color: #ddd;
+}
+
+.favorites h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.favorites ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.favorites li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dekorationer */
+.circles div {
+  position: absolute;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+/* Stor gul cirkel upptill vänster */
+.circle-1 {
+  width: clamp(6rem, 10vw, 12rem);
+  background: radial-gradient(circle, #ffd780, #ffac24);
+  top: -4rem;
+  left: -4rem;
+}
+
+/* Liten gul cirkel nedtill vänster */
+.circle-2 {
+  width: clamp(3rem, 6vw, 8rem);
+  background: radial-gradient(circle, #fff0a0, #ffac24);
+  bottom: -3rem;
+  left: 2rem;
+}
+
+/* Stor lila cirkel upptill höger */
+.circle-3 {
+  width: clamp(6rem, 12vw, 16rem);
+  background: radial-gradient(circle, #7f69e8, #553ddd);
+  top: -5rem;
+  right: -5rem;
+}
+
+/* Liten röd cirkel i mitten höger */
+.circle-4 {
+  width: clamp(2rem, 3vw, 4rem);
+  background: radial-gradient(circle, #fd4069, #dd133f);
+  top: 50%;
+  right: -2rem;
+  transform: translateY(-50%);
+}
+
+.citat {
+  position: relative; /* Gör citat-texten till referenspunkt för de absoluta positionerna */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.citat i {
+  font-size: 2rem; /* Minska storleken på citattecknen */
+  color: #ddd;
+  position: absolute; /* Gör citattecknen positionerade relativt citat-texten */
+}
+
+/* Vänster citattecken */
+.left-quote {
+  top: -1rem; /* Justera positionen så att citattecknet kommer nära texten */
+  left: 1rem;
+}
+
+/* Höger citattecken */
+.right-quote {
+  bottom: 4.5rem; /* Justera positionen så att citattecknet kommer nära texten */
+  right: 3rem;
+}
+
+/* Anpassningar för mindre skärmar */
+@media (max-width: 600px) {
+  .citat i {
+    font-size: 1rem; /* Mindre citattecken på mindre skärmar */
+  }
+
+  .right-quote {
+    bottom: 3rem; /* Justera positionen så att citattecknet kommer nära texten */
+    right: 1rem;
+  }
+
+  .citat-app {
+    width: 90%;
+    padding: 2rem 1rem;
+    padding-top: 3rem;
+  }
+}
+
+/* Media Queries för olika skärmstorlekar */
+
+@media (max-width: 400px) {
+  .container {
+    padding: 2rem 1rem;
+    padding-top: 10rem;
+  }
+
+  .citat-app {
+    width: 90%;
+    padding: 2rem 1rem;
+    padding-top: 2rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .citat-text {
+    font-size: 1rem; /* Mindre citattext på mobiler */
+  }
+
+  .citat-author {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.8rem 1.5rem; /* Mindre knappar */
+    font-size: 0.9rem;
+  }
+
+  .favorites {
+    max-height: 200px;
+  }
+}
+
+/* För mobiler (max 600px) */
+@media (max-width: 600px) {
+  .container {
+    padding: 2rem 1rem;
+    padding-top: 21rem;
+  }
+
+  .citat-app {
+    width: 90%;
+    padding: 2rem 1rem;
+    padding-top: 2rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .citat-text {
+    font-size: 1rem; /* Mindre citattext på mobiler */
+  }
+
+  .citat-author {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.8rem 1.5rem; /* Mindre knappar */
+    font-size: 1rem;
+  }
+
+  .favorites {
+    max-height: 200px;
+  }
+}
+
+/* För tablet (max 768px) */
+@media (max-width: 768px) {
+  .citat-app {
+    padding: 3rem 1rem;
+  }
+
+  .citat-text {
+    font-size: 1rem;
+  }
+
+  .citat-author {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.5rem;
+  }
+
+  .favorites {
+    max-height: 250px;
+  }
+}
+
+/* För större skärmar (desktop) */
+@media (min-width: 1024px) {
+  .container {
+    padding-top: 10rem;
+  }
+
+  .citat-app {
+    width: 70%;
+    padding: 4rem 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .citat-text {
+    font-size: 2rem; /* Större citattext på desktop */
+  }
+
+  .citat-author {
+    font-size: 1.2rem;
+  }
+
+  .favorites {
+    max-height: 350px;
+  }
+}
